@@ -1,7 +1,8 @@
 import {ChangeEvent, FC} from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login, LoginModel } from "../services/auth.service";
+import { LoginModel } from "../services/auth.service";
+import AuthService from "../services/auth.service";
 
 
 
@@ -31,11 +32,12 @@ export const LoginPage: FC = () => {
         setloading(true);
 
         try {
-            const success = await login(loginData);
+            const success = await AuthService.login(loginData);
             if(success) {
-                navigate("/");
+                navigate("/home");
                 window.location.reload();
             } else {
+                console.log(success);
                 alert("Error logging in")
             }
         } catch (error) {

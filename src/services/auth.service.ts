@@ -14,31 +14,34 @@ export interface RegisterModel {
 }
 
 
-export const register = async(registerData: RegisterModel) => {
+class AuthService {
+
+register = async(registerData: RegisterModel) => {
     const response = await axios.post(API_URL_REGISTER, registerData)
     return response.status === 201;
 }
 
 
-export const login = async(loginData: LoginModel) => {
+login = async(loginData: LoginModel) => {
     const response = await axios.post(API_URL_LOGIN, loginData);
     
-    const success = (response.status === 200);
+    const success = (response.status === 201);
+    const responseData = response.data;
 
     if(success) {
-        localStorage.setItem("auth_jwt", response.data);
+        console.log(response);
+        localStorage.setItem("auth_jwt", responseData.accessToken);
     }
-
     return success;
 }
 
 
-export const logout = async () => {
+logout = async () => {
     localStorage.removeItem("auth_jwt");
 }
 
 
-const getAuthJwt = () => {
+getAuthJwt = () => {
     const token = localStorage.getItem("auth_jwt");
 
     if(token) {
@@ -48,8 +51,8 @@ const getAuthJwt = () => {
     }
 } 
 
-export const getAuthHeader = () => {
-    const token = getAuthJwt();
+getAuthHeader = () => {
+    const token = this.getAuthJwt();
 
     if(token) {
         return {Authorization: token}
@@ -59,8 +62,12 @@ export const getAuthHeader = () => {
 }
 
 
-export const checkIsLoggedIn = () => {
-    const token = getAuthJwt();
+checkIsLoggedIn = () => {
+    const token = this.getAuthJwt();
     return Boolean(token);
 }
 
+}
+
+
+export default new AuthService();

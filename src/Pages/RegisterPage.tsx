@@ -1,9 +1,10 @@
 import { ChangeEvent, FC, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { text } from "stream/consumers";
-import { register, RegisterModel } from "../services/auth.service";
+import { RegisterModel } from "../services/auth.service";
+import AuthService from "../services/auth.service";
 
-export const RegisterPage: FC = () => {
+ export const RegisterPage: FC = () => {
     const navigate = useNavigate();
 
     const [registerData, setregisterData] = useState<RegisterModel>({email: " ", password: ""});
@@ -30,7 +31,7 @@ export const RegisterPage: FC = () => {
         setloading(true);
 
         try {
-            const success = await register(registerData);
+            const success = await AuthService.register(registerData);
             if(success) {
                 navigate("/Login")
             } else {
