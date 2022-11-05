@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL_REGISTER = "http://localhost:3200/users/";
-const API_URL_LOGIN = "http://localhost:3200/auth/"
+const API_URL_REGISTER = process.env.REACT_APP_BASE_URL_REGISTER;
+const API_URL_LOGIN = process.env.REACT_APP_BASE_URL_LOGIN;
 
 export interface LoginModel {
     email: string,
@@ -17,13 +17,13 @@ export interface RegisterModel {
 class AuthService {
 
 register = async(registerData: RegisterModel) => {
-    const response = await axios.post(API_URL_REGISTER, registerData)
+    const response = await axios.post(`${API_URL_REGISTER}`, registerData)
     return response.status === 201;
 }
 
 
 login = async(loginData: LoginModel) => {
-    const response = await axios.post(API_URL_LOGIN, loginData);
+    const response = await axios.post(`${API_URL_LOGIN}`, loginData);
     
     const success = (response.status === 201);
     const responseData = response.data;
