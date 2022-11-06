@@ -12,3 +12,5 @@ export const LoggedOutMenu: FC = () => {
        <Button href="/register" color="inherit">Register</Button>
     </>)
 }
+
+
