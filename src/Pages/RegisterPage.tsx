@@ -1,8 +1,9 @@
 import { ChangeEvent, FC, useState } from "react";
 import { useNavigate } from "react-router-dom"
-import { text } from "stream/consumers";
 import { RegisterModel } from "../Services/auth.service";
 import AuthService from "../Services/auth.service";
+import { Box, Button, Stack, TextField, Grid } from "@mui/material";
+
 
  export const RegisterPage: FC = () => {
     const navigate = useNavigate();
@@ -47,13 +48,31 @@ import AuthService from "../Services/auth.service";
 
 
     return (<>
-        <h2>Register Page</h2>
-        {loading && <h4>Loading...</h4>}
-
-        <input type="text" name="email" placeholder="email" value={registerData.email} onChange={handleChangeEmail} />
-        <input type="password" name="password" placeholder="password" value={registerData.password} onChange={handleChangePassword} />
-
-        <button className="btn btn-blue" onClick={handleClickRegister}>Register</button>
-
+    <Grid container justifyContent = "center" marginTop={4}>
+        <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            sx={{
+                height: '500',
+                width: {
+                    xs: 200, // 0vw
+                    sm: 300, // 600vw
+                    md: 400, // 900vw
+                    lg: 500, // 1200vw
+                    xl: 600  // 1536vw
+                },
+            }}
+        >
+            <Stack spacing={4}>
+                <Stack direction="column" spacing={2}>
+                    {loading && <h4>Loading...</h4>}
+                    <TextField label="Email" type="email" value={registerData.email} onChange={handleChangeEmail} />
+                    <TextField label="Password" type="password" value={registerData.password} onChange={handleChangePassword} />
+                </Stack>
+                <Button  color="inherit" className="btn btn-blue" onClick={handleClickRegister}>Register</Button>
+            </Stack>
+        </Box>
+        </Grid>
     </>)
 }
