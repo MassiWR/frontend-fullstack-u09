@@ -1,8 +1,8 @@
 import react, { FC, useEffect, useState } from "react"
-import AuthService from "../../services/auth.service";
+import AuthService from "../../Services/auth.service";
 import { LoggedInMenu } from "./LoginMenu/LoggedInMenu";
 import { LoggedOutMenu } from "./LoginMenu/LoggedOutMenu";
-import { AppBar, Toolbar, IconButton, Typography } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Typography, Stack, Button } from "@mui/material";
 import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone';
 
 export const Navbar: FC = () => {
@@ -22,8 +22,13 @@ export const Navbar: FC = () => {
           <IconButton size="large" edge="start" color="inherit" aria-label="logo">
             <CalendarMonthTwoToneIcon />
           </IconButton>
-          <Typography variant="h6" component='div'>
+          <Typography variant="h6" component='div' sx={{flexGrow: 1}}>
             BookR</Typography>
+            <Stack direction='row' spacing={2}>
+              {
+                isLoggedIn ? <LoggedInMenu /> : <LoggedOutMenu />
+              }
+            </Stack>
         </Toolbar>
        </AppBar>
         

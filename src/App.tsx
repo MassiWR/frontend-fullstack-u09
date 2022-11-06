@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import './App.css';
 import { Navbar } from './Components/NavBar/NavBar';
-import { MyRouter } from './Components/Routes/Routes';
+import { MyRouter } from './Routes/Routes';
 import { LoginPage } from './Pages/LoginPage';
 
 import { RegisterPage } from './Pages/RegisterPage';
-import AuthService from './services/auth.service';
+import AuthService from './Services/auth.service';
 
 function App() {
   return (

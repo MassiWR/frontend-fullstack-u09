@@ -1,8 +1,8 @@
 import {ChangeEvent, FC} from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginModel } from "../services/auth.service";
-import AuthService from "../services/auth.service";
+import { LoginModel } from "../Services/auth.service";
+import AuthService from "../Services/auth.service";
 
 
 
@@ -34,7 +34,7 @@ export const LoginPage: FC = () => {
         try {
             const success = await AuthService.login(loginData);
             if(success) {
-                navigate("/home");
+                navigate("/");
                 window.location.reload();
             } else {
                 console.log(success);

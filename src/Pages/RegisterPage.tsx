@@ -1,8 +1,8 @@
 import { ChangeEvent, FC, useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { text } from "stream/consumers";
-import { RegisterModel } from "../services/auth.service";
-import AuthService from "../services/auth.service";
+import { RegisterModel } from "../Services/auth.service";
+import AuthService from "../Services/auth.service";
 
  export const RegisterPage: FC = () => {
     const navigate = useNavigate();

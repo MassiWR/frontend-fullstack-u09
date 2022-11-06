@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL_REGISTER = process.env.REACT_APP_BASE_URL_REGISTER;
-const API_URL_LOGIN = process.env.REACT_APP_BASE_URL_LOGIN;
+const API_URL_REGISTER = "http://localhost:3200/users"
+const API_URL_LOGIN = "http://localhost:3200/auth"
 
 export interface LoginModel {
     email: string,

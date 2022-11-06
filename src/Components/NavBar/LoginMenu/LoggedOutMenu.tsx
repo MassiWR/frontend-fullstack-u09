@@ -1,3 +1,4 @@
+import { Button } from "@mui/material"
 import react, { FC } from "react"
 import { Link } from "react-router-dom"
 
@@ -7,7 +8,7 @@ import { Link } from "react-router-dom"
 export const LoggedOutMenu: FC = () => {
 
     return (<>
-        <Link to={"/login"}>Login</Link>
-        <Link to={"/register"}>Register</Link>
+       <Button href="/login" color="inherit">Login</Button>
+       <Button href="/register" color="inherit">Register</Button>
     </>)
 }
