@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginModel } from "../Services/auth.service";
 import AuthService from "../Services/auth.service";
+import { Box, Button, Grid, Stack, TextField } from "@mui/material";
 
 
 
@@ -47,16 +48,31 @@ export const LoginPage: FC = () => {
             setloading(false);
         }
     }
-
-
     return(<>
-        <h3>Login Page</h3>
-        {loading && <h3>Loading...</h3>}
-
-        <input type="email" name="email" placeholder="email" value={loginData.email} onChange={handleChangeEmail} />
-        <input type="password" name="password" placeholder="password" value={loginData.password} onChange={handleChangePassword} />
-
-        <button className="btn btn-blue" onClick={handleClickLogin}>Login</button>
-
+         <Grid container justifyContent = "center" marginTop={4}>
+        <Box
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            sx={{
+                height: '500',
+                width: {
+                    xs: 200, // 0vw
+                    sm: 300, // 600vw
+                    md: 400, // 900vw
+                    lg: 500, // 1200vw
+                    xl: 600  // 1536vw
+                },
+            }}
+        >
+            <Stack spacing={4}>
+                <Stack direction="column" spacing={2}>
+                    <TextField label="Email" type="email" value={loginData.email} onChange={handleChangeEmail} />
+                    <TextField label="Password" type="password" value={loginData.password} onChange={handleChangePassword} />
+                </Stack>
+                <Button  color="inherit" className="btn btn-blue" onClick={handleClickLogin}>Login</Button>
+            </Stack>
+        </Box>
+        </Grid>
     </>)
 }
