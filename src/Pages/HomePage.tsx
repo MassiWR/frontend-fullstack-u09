@@ -10,7 +10,5 @@ import { Calendar } from "../Components/Calendar";
 export const HomePage: FC = () => {
     return(<>
         <Calendar />
-        <h3>This is the way</h3>
-
     </>)
 }
