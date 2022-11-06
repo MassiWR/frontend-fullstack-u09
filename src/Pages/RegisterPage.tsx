@@ -60,8 +60,10 @@ import { Box, Button, Stack, TextField, Grid } from "@mui/material";
                     sm: 300, // 600vw
                     md: 400, // 900vw
                     lg: 500, // 1200vw
-                    xl: 600  // 1536vw
+                    xl: 600,  // 1536vw
+                    bgcolor: 'primary.main'
                 },
+                
             }}
         >
             <Stack spacing={4}>
