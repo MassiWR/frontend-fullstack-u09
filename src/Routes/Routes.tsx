@@ -14,6 +14,8 @@ export const MyRouter: FC = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/book/:user" element={<BookUser />} />
         <Route
           path="*"
           element={
