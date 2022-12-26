@@ -1,14 +1,9 @@
-import {ChangeEvent, FC} from "react";
+import { ChangeEvent, FC } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginModel } from "../Services/auth.service";
-import AuthService from "../Services/auth.service";
-import { MyCalendar } from "../Components/Calendar";
-
-
+import { LoginModel } from "../services/auth.service";
+import AuthService from "../services/auth.service";
 
 export const HomePage: FC = () => {
-    return(<>
-        <MyCalendar />
-    </>)
-}
+  return <></>;
+};

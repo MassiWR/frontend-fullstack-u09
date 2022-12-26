@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import { Navbar } from './Components/NavBar/NavBar';
-import { MyRouter } from './Routes/Routes';
-import { LoginPage } from './Pages/LoginPage';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Navbar } from "./Components/NavBar/NavBar";
+import { MyRouter } from "./Routes/Routes";
+import { LoginPage } from "./Pages/LoginPage";
 
-import { RegisterPage } from './Pages/RegisterPage';
-import AuthService from './Services/auth.service';
+import { RegisterPage } from "./Pages/RegisterPage";
+import AuthService from "./services/auth.service";
 
 function App() {
   return (
