@@ -2,10 +2,18 @@ import React, { useState, useEffect, FC } from "react";
 import TimezoneSelect from "react-timezone-select";
 import { useNavigate } from "react-router-dom";
 
-export const DashboardComponent: FC = () => {
-  const [selectedTimezone, setSelectedTimezone] = useState(
-    TimezoneSelect.prototype
-  );
+export const DashboardComponent = () => {
+  const [selectedTimezone, setSelectedTimezone] = useState({});
+
+  const [schedule, setSchedule] = useState([
+    { day: "Sun", startTime: "", endTime: "" },
+    { day: "Mon", startTime: "", endTime: "" },
+    { day: "Tue", startTime: "", endTime: "" },
+    { day: "Wed", startTime: "", endTime: "" },
+    { day: "Thu", startTime: "", endTime: "" },
+    { day: "Fri", startTime: "", endTime: "" },
+    { day: "Sat", startTime: "", endTime: "" },
+  ]);
 
   return (
     <div>
