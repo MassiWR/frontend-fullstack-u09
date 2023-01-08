@@ -1,11 +1,11 @@
 import { FC } from "react";
 import AuthService from "../services/auth.service";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
-import { LoginPage } from "../Pages/LoginPage";
+import { LoginPage } from "../Pages/LoginPage/LoginPage";
 import { RegisterPage } from "../Pages/RegisterPage";
 import { Navbar } from "../Components/NavBar/NavBar";
 import App from "../App";
-import { HomePage } from "../Pages/HomePage";
+import { HomePage } from "../Pages/Homepage/HomePage";
 //👇🏻 React-Toastify configuration
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const API_URL_REGISTER = "http://localhost:3200/users";
-const API_URL_LOGIN = "http://localhost:3200/auth";
+const API_URL_REGISTER = "http://localhost:5100/users";
+const API_URL_LOGIN = "http://localhost:5100/auth";
 
 export interface LoginModel {
   email: string;
