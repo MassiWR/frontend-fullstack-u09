@@ -10,6 +10,7 @@ export interface LoginModel {
 
 export interface RegisterModel {
   email: string;
+  firstName: string;
   password: string;
 }
 
@@ -28,6 +29,7 @@ class AuthService {
     if (success) {
       console.log(response);
       localStorage.setItem("auth_jwt", responseData.accessToken);
+      localStorage.setItem("userId", responseData.userId);
     }
     return success;
   };

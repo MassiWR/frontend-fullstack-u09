@@ -96,4 +96,7 @@ button:hover {
   .form-card {
     margin-bottom: 10px;
   }
+  .dashboard-main {
+    width: 100%;
+  }
 }

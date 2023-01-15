@@ -13,6 +13,9 @@ export const LoggedInMenu: FC = (props) => {
   return (
     <>
       <Button color="inherit" onClick={onClickLogout}>
+        <a href="/profile">Profile</a>
+      </Button>
+      <Button color="inherit" onClick={onClickLogout}>
         Logout
       </Button>
     </>

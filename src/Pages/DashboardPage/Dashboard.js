@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import TimezoneSelect from "react-timezone-select";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { time } from "../../services/utils";
 import { toast } from "react-toastify";
 import "./Dashboard.css";
+import axios from "axios";
 
 export const DashboardComponent = () => {
+  const userId = localStorage.getItem("userId");
   const [schedule, setSchedule] = useState([
     { day: "Sun", startTime: "", endTime: "" },
     { day: "Mon", startTime: "", endTime: "" },
@@ -16,11 +18,10 @@ export const DashboardComponent = () => {
     { day: "Sat", startTime: "", endTime: "" },
   ]);
 
-  const { id } = useParams();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!localStorage.getItem("_id")) {
-      navigate("/dashboard");
+    if (!localStorage.getItem("auth_jwt")) {
+      navigate("/");
     }
   }, [navigate]);
 
@@ -34,7 +35,26 @@ export const DashboardComponent = () => {
   };
   const handleSaveSchedules = () => {
     if (JSON.stringify(selectedTimezone) !== "{}") {
-      console.log(schedule);
+      axios
+        .post(
+          `http://localhost:5100/users/${userId}/schedule`,
+          {
+            timezone: selectedTimezone,
+            schedule: schedule,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("auth_jwt")}`,
+            },
+          }
+        )
+        .then(() => {
+          toast.success("Schedule saved successfully!");
+        })
+        .catch((err) => {
+          toast.error("Error saving schedule. Please try again.");
+          console.log(err);
+        });
     } else {
       toast.error("Select your timezone");
     }

@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 
-const BookUser = () => {
+export const BookUserComponent = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const { user } = useParams();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +15,7 @@ const BookUser = () => {
 
   return (
     <div className="bookContainer">
-      <h2 className="bookTitle">Book a session with {user}</h2>
+      <h2 className="bookTitle">Book a session with</h2>
       <form onSubmit={handleSubmit} className="booking__form">
         <label htmlFor="fullName">Full Name</label>
         <input
@@ -37,7 +36,7 @@ const BookUser = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label htmlFor="message">Any important note? (optional)</label>
+        <label htmlFor="message">Any important note? </label>
         <textarea
           rows={5}
           name="message"
@@ -55,5 +54,3 @@ const BookUser = () => {
     </div>
   );
 };
-
-export default BookUser;

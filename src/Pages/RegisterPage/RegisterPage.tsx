@@ -9,6 +9,7 @@ export const RegisterPage: FC = () => {
 
   const [registerData, setregisterData] = useState<RegisterModel>({
     email: "",
+    firstName: "",
     password: "",
   });
 
@@ -16,15 +17,22 @@ export const RegisterPage: FC = () => {
 
   function handleChangeEmail(e: ChangeEvent<HTMLInputElement>) {
     setregisterData({
+      ...registerData,
       email: e.target.value,
-      password: registerData.password,
     });
   }
 
   function handleChangePassword(e: ChangeEvent<HTMLInputElement>) {
     setregisterData({
-      email: registerData.email,
+      ...registerData,
       password: e.target.value,
+    });
+  }
+
+  function handleChangeFirstName(e: ChangeEvent<HTMLInputElement>) {
+    setregisterData({
+      ...registerData,
+      firstName: e.target.value,
     });
   }
 
@@ -67,6 +75,11 @@ export const RegisterPage: FC = () => {
           <Stack spacing={4}>
             <Stack direction="column" spacing={2}>
               {loading && <h4>Loading...</h4>}
+              <TextField
+                label="First Name"
+                value={registerData.firstName}
+                onChange={handleChangeFirstName}
+              />
               <TextField
                 label="Email"
                 type="email"
