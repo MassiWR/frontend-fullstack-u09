@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import TimezoneSelect from "react-timezone-select";
 import { useNavigate, useParams } from "react-router-dom";
-import { time } from "../services/utils";
+import { time } from "../../services/utils";
 import { toast } from "react-toastify";
+import "./Dashboard.css";
 
 export const DashboardComponent = () => {
   const [schedule, setSchedule] = useState([
@@ -39,23 +40,22 @@ export const DashboardComponent = () => {
     }
   };
   return (
-    <div>
-      <nav className="dashboard__nav">
-        <h2>BookMe</h2>
-      </nav>
-      <main className="dashboard__main">
-        <h2 className="dashboard__heading">Select your availability</h2>
-        <div className="timezone__wrapper">
-          <p>Pick your timezone</p>
-          <TimezoneSelect
-            value={selectedTimezone}
-            onChange={setSelectedTimezone}
-          />
+    <div className="dashboard-component">
+      <main className="dashboard-main">
+        <h2 className="dashboard-heading">Select your availability</h2>
+        <div className="timezone-wrapper">
+          <div class="timezone-select-wrapper">
+            <p>Pick your timezone</p>
+            <TimezoneSelect
+              value={selectedTimezone}
+              onChange={setSelectedTimezone}
+            />
+          </div>
 
           {schedule.map((sch, id) => (
-            <div className="form" key={id}>
+            <div className="form-card" key={id}>
               <p>{sch.day}</p>
-              <div className="select__wrapper">
+              <div>
                 <label htmlFor="startTime">Start Time</label>
                 <select
                   name="startTime"
@@ -69,7 +69,7 @@ export const DashboardComponent = () => {
                   ))}
                 </select>
               </div>
-              <div className="select__wrapper">
+              <div>
                 <label htmlFor="endTime">End Time</label>
                 <select
                   name="endTime"
@@ -85,10 +85,9 @@ export const DashboardComponent = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="saveBtn__container">
-          <button onClick={handleSaveSchedules}>SAVE SCHEDULES</button>
+          <div className="save-btn-container">
+            <button onClick={handleSaveSchedules}>SAVE SCHEDULES</button>
+          </div>
         </div>
       </main>
     </div>

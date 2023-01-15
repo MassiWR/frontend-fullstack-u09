@@ -8,7 +8,7 @@ export const RegisterPage: FC = () => {
   const navigate = useNavigate();
 
   const [registerData, setregisterData] = useState<RegisterModel>({
-    email: " ",
+    email: "",
     password: "",
   });
 

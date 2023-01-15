@@ -1,0 +1,99 @@
+.dashboard-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: antiquewhite;
+}
+
+.dashboard-main {
+  width: 80%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashboard-heading {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+  color: rgb(7, 113, 74);
+}
+
+.timezone-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.form-card {
+  background-color: #0d263a;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form p {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.select-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.select-wrapper label {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+select {
+  padding: 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  margin: 5px;
+  background-color: #f9f9f9;
+}
+
+.save-btn-container {
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+@media (max-width: 768px) {
+  .dashboard-component {
+    flex-direction: column;
+  }
+  .timezone-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .form-card {
+    margin-bottom: 10px;
+  }
+}

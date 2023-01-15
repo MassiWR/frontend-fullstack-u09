@@ -9,7 +9,7 @@ import { HomePage } from "../Pages/Homepage/HomePage";
 //👇🏻 React-Toastify configuration
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { DashboardComponent } from "../Pages/Dashboard";
+import { DashboardComponent } from "../Pages/DashboardPage/Dashboard";
 
 export const MyRouter: FC = () => {
   return (
