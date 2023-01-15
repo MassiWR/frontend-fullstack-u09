@@ -1,42 +1,44 @@
-import { ChangeEvent, FC, useState } from "react";
+import { ChangeEvent, FC } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { RegisterModel } from "../services/auth.service";
+import { LoginModel } from "../services/auth.service";
 import AuthService from "../services/auth.service";
-import { Box, Button, Stack, TextField, Grid } from "@mui/material";
+import { Box, Button, Grid, Stack, TextField } from "@mui/material";
 
-export const RegisterPage: FC = () => {
+export const LoginPage: FC = () => {
   const navigate = useNavigate();
 
-  const [registerData, setregisterData] = useState<RegisterModel>({
-    email: " ",
+  const [loginData, setloginData] = useState<LoginModel>({
+    email: "",
     password: "",
   });
-
   const [loading, setloading] = useState(false);
 
   function handleChangeEmail(e: ChangeEvent<HTMLInputElement>) {
-    setregisterData({
+    setloginData({
       email: e.target.value,
-      password: registerData.password,
+      password: loginData.password,
     });
   }
 
   function handleChangePassword(e: ChangeEvent<HTMLInputElement>) {
-    setregisterData({
-      email: registerData.email,
+    setloginData({
+      email: loginData.email,
       password: e.target.value,
     });
   }
 
-  async function handleClickRegister() {
+  async function handleClickLogin() {
     setloading(true);
 
     try {
-      const success = await AuthService.register(registerData);
+      const success = await AuthService.login(loginData);
       if (success) {
-        navigate("/Login");
+        navigate("/dashboard");
+        window.location.reload();
       } else {
-        alert("Error registering user");
+        console.log(success);
+        alert("Error logging in");
       }
     } catch (error) {
       alert(error);
@@ -44,7 +46,6 @@ export const RegisterPage: FC = () => {
       setloading(false);
     }
   }
-
   return (
     <>
       <Grid container justifyContent="center" marginTop={4}>
@@ -60,32 +61,30 @@ export const RegisterPage: FC = () => {
               md: 400, // 900vw
               lg: 500, // 1200vw
               xl: 600, // 1536vw
-              bgcolor: "primary.main",
             },
           }}
         >
           <Stack spacing={4}>
             <Stack direction="column" spacing={2}>
-              {loading && <h4>Loading...</h4>}
               <TextField
                 label="Email"
                 type="email"
-                value={registerData.email}
+                value={loginData.email}
                 onChange={handleChangeEmail}
               />
               <TextField
                 label="Password"
                 type="password"
-                value={registerData.password}
+                value={loginData.password}
                 onChange={handleChangePassword}
               />
             </Stack>
             <Button
               color="inherit"
               className="btn btn-blue"
-              onClick={handleClickRegister}
+              onClick={handleClickLogin}
             >
-              Register
+              Login
             </Button>
           </Stack>
         </Box>

@@ -9,13 +9,3 @@ body {
   margin: 0;
   padding: 0;
 }
-
-label {
-  margin-bottom: 5px;
-}
-button {
-  cursor: pointer;
-  outline: none;
-  border: none;
-  padding: 10px;
-}
