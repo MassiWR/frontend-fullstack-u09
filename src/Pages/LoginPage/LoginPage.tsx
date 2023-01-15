@@ -1,8 +1,8 @@
 import { ChangeEvent, FC } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LoginModel } from "../services/auth.service";
-import AuthService from "../services/auth.service";
+import { LoginModel } from "../../services/auth.service";
+import AuthService from "../../services/auth.service";
 import { Box, Button, Grid, Stack, TextField } from "@mui/material";
 
 export const LoginPage: FC = () => {
@@ -12,7 +12,6 @@ export const LoginPage: FC = () => {
     email: "",
     password: "",
   });
-  const [loading, setloading] = useState(false);
 
   function handleChangeEmail(e: ChangeEvent<HTMLInputElement>) {
     setloginData({
@@ -29,8 +28,6 @@ export const LoginPage: FC = () => {
   }
 
   async function handleClickLogin() {
-    setloading(true);
-
     try {
       const success = await AuthService.login(loginData);
       if (success) {
@@ -43,7 +40,6 @@ export const LoginPage: FC = () => {
     } catch (error) {
       alert(error);
     } finally {
-      setloading(false);
     }
   }
   return (

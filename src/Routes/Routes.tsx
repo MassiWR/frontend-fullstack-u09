@@ -1,7 +1,7 @@
 import { FC } from "react";
 import AuthService from "../services/auth.service";
 import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
-import { LoginPage } from "../Pages/LoginPage";
+import { LoginPage } from "../Pages/LoginPage/LoginPage";
 import { RegisterPage } from "../Pages/RegisterPage/RegisterPage";
 import { Navbar } from "../Components/NavBar/NavBar";
 import App from "../App";

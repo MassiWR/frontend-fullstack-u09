@@ -63,3 +63,75 @@
 .home-card button:hover {
   background-color: #000000;
 }
+
+@media only screen and (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  .wrapper {
+    width: 100%;
+  }
+  .pictureHome {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+  .home-card h1 {
+    font-size: 36px;
+  }
+  .home-card p {
+    font-size: 16px;
+  }
+  .home-card button {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .container {
+    flex-wrap: wrap;
+  }
+  .wrapper {
+    width: 80%;
+  }
+  .pictureHome {
+    width: 80%;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+  .home-card h1 {
+    font-size: 42px;
+  }
+  .home-card p {
+    font-size: 18px;
+  }
+  .home-card button {
+    width: 45%;
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .container {
+    flex-wrap: nowrap;
+  }
+  .wrapper {
+    width: 50%;
+  }
+  .pictureHome {
+    width: 40%;
+    height: 400px;
+    margin-bottom: 40px;
+  }
+  .home-card h1 {
+    font-size: 48px;
+  }
+  .home-card p {
+    font-size: 20px;
+  }
+  .home-card button {
+    width: 20%;
+    font-size: 20px;
+  }
+}
